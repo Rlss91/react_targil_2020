@@ -17,9 +17,9 @@ function StoperComp() {
     };
   }, []);
 
-  // useEffect(() => {
-  //   console.log(timeState);
-  // }, [timeState]);
+  useEffect(() => {
+    console.log(timeState);
+  }, [timeState]);
 
   let startInterval = () => {
     if (intervalPtr) return;
