@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import * as actionTypes from "../store/actions";
 
 import TimeParcial from "./parcials/TimeParcial";
 
@@ -7,6 +10,10 @@ let intervalPtr = undefined;
 function StoperComp() {
   let [timeState, setTimeState] = useState(0);
   let [timeArrState, setTimeArrState] = useState([]);
+
+  const counter = useSelector((state) => state.ctr.counter);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     console.log("start interval");
@@ -51,6 +58,18 @@ function StoperComp() {
 
   return (
     <div>
+      <br />
+      <div>
+        <h3>redux:</h3>
+        <h4>{counter}</h4>
+        <button
+          onClick={() => {
+            dispatch({ type: actionTypes.INCREMENT });
+          }}
+        >
+          add 1
+        </button>
+      </div>
       <br />
       <TimeParcial time={timeState} />
       <button

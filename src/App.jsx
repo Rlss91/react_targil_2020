@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "./App.css";
 import StoperComp from "./components/StoperComp";
-import StoperCompClass from "./components/StoperCompClass";
+import DisplayRedux from "./components/DisplayRedux";
+// import StoperCompClass from "./components/StoperCompClass";
 
 function App() {
   let [stpState, setStpState] = useState(true);
@@ -15,6 +16,7 @@ function App() {
         toggle
       </button>
       {stpState && <StoperComp />}
+      {!stpState && <DisplayRedux />}
       {/* <StoperCompClass /> */}
     </div>
   );
